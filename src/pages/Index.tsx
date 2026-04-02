@@ -1,16 +1,37 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import AnimatedBubbles from "@/components/AnimatedBubbles";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import IntroductionSection from "@/components/IntroductionSection";
+import IngredientsSection from "@/components/IngredientsSection";
+import ProcedureSection from "@/components/ProcedureSection";
+import FlowDiagramSection from "@/components/FlowDiagramSection";
+import PhotosSection from "@/components/PhotosSection";
+import ApplicationsSection from "@/components/ApplicationsSection";
+import QuizSection from "@/components/QuizSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-};
+const Index = () => (
+  <div className="relative min-h-screen bg-background">
+    <AnimatedBubbles />
+    <Navbar />
+    <HeroSection />
+    <IntroductionSection />
+    <IngredientsSection />
+    <ProcedureSection />
+    <FlowDiagramSection />
+    <PhotosSection />
+    <ApplicationsSection />
+    <QuizSection />
 
-const Index = PlaceholderIndex;
+    {/* Footer */}
+    <footer className="py-12 border-t border-border/30">
+      <div className="container mx-auto px-4 text-center">
+        <p className="font-display text-primary text-sm glow-text mb-2">⚗️ ChemLab Prototype</p>
+        <p className="text-muted-foreground text-xs font-tech">
+          © 2025 Chemistry Project | Samrudhi, Siddhi, Tanishka & Aniket
+        </p>
+      </div>
+    </footer>
+  </div>
+);
 
 export default Index;

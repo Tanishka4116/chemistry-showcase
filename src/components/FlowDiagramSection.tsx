@@ -1,12 +1,14 @@
 import { useInView } from "./useInView";
+import processFlowImg from "@/assets/process-flow-diagram.png";
+import blockDiagramImg from "@/assets/block-diagram.png";
 
 const flowSteps = [
-  { label: "Raw Materials", sub: "Collection", color: "var(--chem-amber)" },
-  { label: "Preparation", sub: "Setup", color: "var(--primary)" },
-  { label: "Reaction", sub: "Process", color: "var(--chem-magenta)" },
-  { label: "Filtration", sub: "Separation", color: "var(--chem-cyan)" },
-  { label: "Analysis", sub: "Testing", color: "var(--primary)" },
-  { label: "Final Product", sub: "Output", color: "var(--chem-amber)" },
+  { label: "Raw Materials", sub: "Gum, Carbon, Water", color: "var(--chem-amber)" },
+  { label: "Grinding", sub: "Carbon pigment", color: "var(--primary)" },
+  { label: "Mixing", sub: "Combine reagents", color: "var(--chem-magenta)" },
+  { label: "Heating", sub: "Water bath", color: "var(--chem-cyan)" },
+  { label: "Filtration", sub: "Remove impurities", color: "var(--primary)" },
+  { label: "Final Ink", sub: "Product output", color: "var(--chem-amber)" },
 ];
 
 const FlowDiagramSection = () => {
@@ -20,7 +22,23 @@ const FlowDiagramSection = () => {
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground glow-text">Process Flow Diagram</h2>
         </div>
 
-        {/* Flow diagram */}
+        {/* Process Flow Diagram Image */}
+        <div className={`max-w-4xl mx-auto mb-16 transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+          <div className="glass-card p-3 glow-border">
+            <img src={processFlowImg} alt="Process Flow Diagram for Preparation of Ink" className="rounded-lg w-full bg-white" loading="lazy" />
+            <p className="text-center text-muted-foreground text-xs font-tech mt-3">Process Flow Diagram — From raw materials to final ink product</p>
+          </div>
+        </div>
+
+        {/* Block Diagram Image */}
+        <div className={`max-w-3xl mx-auto mb-16 transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`} style={{ transitionDelay: "0.3s" }}>
+          <div className="glass-card p-3 glow-border">
+            <img src={blockDiagramImg} alt="Block Diagram for Ink Preparation" className="rounded-lg w-full bg-white" loading="lazy" />
+            <p className="text-center text-muted-foreground text-xs font-tech mt-3">Block Diagram — Workflow overview</p>
+          </div>
+        </div>
+
+        {/* Animated flow steps */}
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-0">
             {flowSteps.map((step, i) => (
@@ -30,7 +48,7 @@ const FlowDiagramSection = () => {
                     inView ? "opacity-100 scale-100" : "opacity-0 scale-75"
                   }`}
                   style={{
-                    transitionDelay: `${0.2 + i * 0.15}s`,
+                    transitionDelay: `${0.5 + i * 0.15}s`,
                     boxShadow: inView ? `0 0 20px hsl(${step.color} / 0.3)` : "none",
                   }}
                 >
@@ -49,10 +67,8 @@ const FlowDiagramSection = () => {
                 </div>
                 {i < flowSteps.length - 1 && (
                   <div
-                    className={`hidden md:block transition-all duration-500 ${
-                      inView ? "opacity-100 w-12" : "opacity-0 w-0"
-                    }`}
-                    style={{ transitionDelay: `${0.4 + i * 0.15}s` }}
+                    className={`hidden md:block transition-all duration-500 ${inView ? "opacity-100 w-12" : "opacity-0 w-0"}`}
+                    style={{ transitionDelay: `${0.7 + i * 0.15}s` }}
                   >
                     <svg width="48" height="24" viewBox="0 0 48 24">
                       <line x1="0" y1="12" x2="36" y2="12" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" />
@@ -65,7 +81,7 @@ const FlowDiagramSection = () => {
           </div>
 
           {/* Circular workflow */}
-          <div className={`mt-20 flex justify-center transition-all duration-1000 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1s" }}>
+          <div className={`mt-20 flex justify-center transition-all duration-1000 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1.2s" }}>
             <div className="relative w-64 h-64 md:w-80 md:h-80">
               <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 molecule-spin" />
               <div className="absolute inset-4 rounded-full border border-secondary/20 molecule-spin" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
@@ -92,8 +108,8 @@ const FlowDiagramSection = () => {
               })}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="font-display text-primary text-sm glow-text">WORKFLOW</p>
-                  <p className="text-muted-foreground text-xs">Cycle</p>
+                  <p className="font-display text-primary text-sm glow-text">INK</p>
+                  <p className="text-muted-foreground text-xs">Workflow</p>
                 </div>
               </div>
             </div>

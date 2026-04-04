@@ -40,7 +40,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#home" className="font-display text-lg text-primary glow-text tracking-wider">
-          ⚗️ ChemLab
+          🖋️ InkCraft
         </a>
         <button
           className="md:hidden text-foreground"

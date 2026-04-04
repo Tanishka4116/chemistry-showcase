@@ -5,7 +5,7 @@ const members = [
   { name: "Samrudhi Phulari", prn: "202401040129" },
   { name: "Siddhi Patil", prn: "202401040152" },
   { name: "Tanishka Bhor", prn: "202401040132" },
-  { name: "Aniket Rajput", prn: "202401040" },
+  { name: "Aniket Rajput", prn: "202401040138" },
 ];
 
 const HeroSection = () => (
@@ -17,29 +17,19 @@ const HeroSection = () => (
     </div>
 
     {/* Floating molecule */}
-    <img
-      src={moleculeImg}
-      alt=""
-      className="absolute top-20 right-10 w-32 h-32 molecule-spin opacity-40"
-      loading="lazy" width={512} height={512}
-    />
-    <img
-      src={moleculeImg}
-      alt=""
-      className="absolute bottom-32 left-10 w-24 h-24 molecule-spin opacity-30"
-      style={{ animationDirection: "reverse", animationDuration: "30s" }}
-      loading="lazy" width={512} height={512}
-    />
+    <img src={moleculeImg} alt="" className="absolute top-20 right-10 w-32 h-32 molecule-spin opacity-40" loading="lazy" width={512} height={512} />
+    <img src={moleculeImg} alt="" className="absolute bottom-32 left-10 w-24 h-24 molecule-spin opacity-30" style={{ animationDirection: "reverse", animationDuration: "30s" }} loading="lazy" width={512} height={512} />
 
     <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
       <div className="animate-fade-in">
-        <p className="font-tech text-primary tracking-[0.3em] text-sm mb-4 uppercase">Chemical Prototype Project</p>
+        <p className="font-tech text-primary tracking-[0.3em] text-sm mb-4 uppercase">Engineering Chemistry Project</p>
         <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text text-foreground leading-tight">
-          Chemistry in <span className="text-primary">Action</span>
+          Chemical Prototyping & <span className="text-primary">Preparation of Ink</span>
         </h1>
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10 font-body">
-          Exploring chemical reactions through hands-on experimentation and innovative prototyping
+        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-4 font-body">
+          A comprehensive study of ink formulation using gum, carbon, glycerol, copper sulfate, and ethanol through systematic chemical processes.
         </p>
+        <p className="text-muted-foreground text-sm font-tech">Department of Computer Engineering • Academic Year 2024-25</p>
       </div>
 
       {/* Team Cards */}
@@ -47,7 +37,7 @@ const HeroSection = () => (
         {members.map((m, i) => (
           <div
             key={m.prn}
-            className={`glass-card p-4 animate-fade-in glow-border hover:scale-105 transition-transform duration-300`}
+            className="glass-card p-4 animate-fade-in glow-border hover:scale-105 transition-transform duration-300"
             style={{ animationDelay: `${0.3 + i * 0.15}s` }}
           >
             <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/30 flex items-center justify-center text-2xl">
@@ -60,9 +50,7 @@ const HeroSection = () => (
       </div>
 
       <div className="mt-8 glass-card inline-block px-6 py-3 animate-fade-in" style={{ animationDelay: "1s" }}>
-        <p className="text-muted-foreground text-sm font-tech">
-          Under the guidance of our esteemed faculty
-        </p>
+        <p className="text-muted-foreground text-sm font-tech">Under the guidance of our esteemed faculty</p>
       </div>
 
       {/* Scroll indicator */}

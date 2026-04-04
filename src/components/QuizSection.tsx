@@ -3,23 +3,28 @@ import { useInView } from "./useInView";
 
 const questions = [
   {
-    q: "What is the pH of a neutral solution?",
-    options: ["5", "7", "9", "14"],
+    q: "What is the role of Gum Arabic in ink preparation?",
+    options: ["Colorant", "Binder & viscosity controller", "Preservative", "Solvent"],
     answer: 1,
   },
   {
-    q: "Which indicator turns pink in basic solution?",
-    options: ["Litmus", "Methyl orange", "Phenolphthalein", "Universal"],
+    q: "Which chemical is used as a preservative in ink?",
+    options: ["Ethanol", "Glycerol", "Copper Sulphate (CuSO₄)", "Carbon Black"],
     answer: 2,
   },
   {
-    q: "What is the chemical formula of water?",
-    options: ["H₂O₂", "HO", "H₂O", "OH⁻"],
+    q: "What is the chemical formula of Glycerol?",
+    options: ["C₂H₅OH", "H₂O", "C₃H₈O₃", "CuSO₄"],
     answer: 2,
   },
   {
-    q: "NaOH is a common example of?",
-    options: ["Acid", "Base", "Salt", "Indicator"],
+    q: "What is the purpose of adding Ethanol to ink?",
+    options: ["Color enhancement", "Binding", "Consistency & drying control", "Preservation"],
+    answer: 2,
+  },
+  {
+    q: "What pH range is maintained in the prepared ink?",
+    options: ["2.0 - 3.5", "6.5 - 7.5", "9.0 - 10.5", "12.0 - 14.0"],
     answer: 1,
   },
 ];
@@ -69,19 +74,13 @@ const QuizSection = () => {
               <div className="text-6xl mb-4">🎉</div>
               <h3 className="font-display text-2xl text-foreground mb-2">Quiz Complete!</h3>
               <p className="text-muted-foreground mb-2">Your Score</p>
-              <p className="font-display text-5xl text-primary glow-text mb-6">
-                {score}/{questions.length}
-              </p>
-              <button
-                onClick={restart}
-                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-tech font-semibold hover:scale-105 transition-transform"
-              >
+              <p className="font-display text-5xl text-primary glow-text mb-6">{score}/{questions.length}</p>
+              <button onClick={restart} className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-tech font-semibold hover:scale-105 transition-transform">
                 Try Again
               </button>
             </div>
           ) : (
             <div className={`glass-card p-8 glow-border transition-all duration-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              {/* Progress */}
               <div className="flex gap-2 mb-6">
                 {questions.map((_, i) => (
                   <div

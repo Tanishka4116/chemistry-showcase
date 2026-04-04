@@ -25,9 +25,9 @@ const Index = () => (
     {/* Footer */}
     <footer className="py-12 border-t border-border/30">
       <div className="container mx-auto px-4 text-center">
-        <p className="font-display text-primary text-sm glow-text mb-2">⚗️ ChemLab Prototype</p>
+        <p className="font-display text-primary text-sm glow-text mb-2">🖋️ InkCraft — Chemical Prototyping</p>
         <p className="text-muted-foreground text-xs font-tech">
-          © 2025 Chemistry Project | Samrudhi, Siddhi, Tanishka & Aniket
+          © 2025 Preparation of Ink | Samrudhi, Siddhi, Tanishka & Aniket
         </p>
       </div>
     </footer>

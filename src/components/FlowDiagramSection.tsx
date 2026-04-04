@@ -1,14 +1,16 @@
 import { useInView } from "./useInView";
 import processFlowImg from "@/assets/process-flow-diagram.png";
-import blockDiagramImg from "@/assets/block-diagram.png";
 
 const flowSteps = [
-  { label: "Raw Materials", sub: "Gum, Carbon, Water", color: "var(--chem-amber)" },
-  { label: "Grinding", sub: "Carbon pigment", color: "var(--primary)" },
-  { label: "Mixing", sub: "Combine reagents", color: "var(--chem-magenta)" },
-  { label: "Heating", sub: "Water bath", color: "var(--chem-cyan)" },
-  { label: "Filtration", sub: "Remove impurities", color: "var(--primary)" },
-  { label: "Final Ink", sub: "Product output", color: "var(--chem-amber)" },
+  { label: "Distilled Water", sub: "Solvent base", color: "var(--chem-cyan)" },
+  { label: "Mixing", sub: "Glue + CuSO₄", color: "var(--primary)" },
+  { label: "Heating", sub: "Controlled heat", color: "var(--chem-magenta)" },
+  { label: "Cooling", sub: "Temperature drop", color: "var(--chem-cyan)" },
+  { label: "Filtration", sub: "Separation", color: "var(--primary)" },
+  { label: "Raw Ink", sub: "+ Alcohol & Boric Acid", color: "var(--chem-amber)" },
+  { label: "Mixing", sub: "Final blend", color: "var(--chem-magenta)" },
+  { label: "Filtration", sub: "Final filter", color: "var(--primary)" },
+  { label: "Ink", sub: "Final product", color: "var(--chem-amber)" },
 ];
 
 const FlowDiagramSection = () => {
@@ -30,30 +32,22 @@ const FlowDiagramSection = () => {
           </div>
         </div>
 
-        {/* Block Diagram Image */}
-        <div className={`max-w-3xl mx-auto mb-16 transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-95"}`} style={{ transitionDelay: "0.3s" }}>
-          <div className="glass-card p-3 glow-border">
-            <img src={blockDiagramImg} alt="Block Diagram for Ink Preparation" className="rounded-lg w-full bg-white" loading="lazy" />
-            <p className="text-center text-muted-foreground text-xs font-tech mt-3">Block Diagram — Workflow overview</p>
-          </div>
-        </div>
-
         {/* Animated flow steps */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-0">
             {flowSteps.map((step, i) => (
-              <div key={step.label} className="flex items-center">
+              <div key={step.label + i} className="flex items-center">
                 <div
-                  className={`glass-card p-5 md:p-6 text-center min-w-[140px] hover:scale-110 transition-all duration-500 ${
+                  className={`glass-card p-4 md:p-5 text-center min-w-[110px] md:min-w-[120px] hover:scale-110 transition-all duration-500 ${
                     inView ? "opacity-100 scale-100" : "opacity-0 scale-75"
                   }`}
                   style={{
-                    transitionDelay: `${0.5 + i * 0.15}s`,
+                    transitionDelay: `${0.5 + i * 0.12}s`,
                     boxShadow: inView ? `0 0 20px hsl(${step.color} / 0.3)` : "none",
                   }}
                 >
                   <div
-                    className="w-12 h-12 mx-auto mb-3 rounded-full flex items-center justify-center font-display font-bold text-lg"
+                    className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center font-display font-bold text-sm"
                     style={{
                       background: `hsl(${step.color} / 0.2)`,
                       border: `2px solid hsl(${step.color} / 0.5)`,
@@ -62,17 +56,17 @@ const FlowDiagramSection = () => {
                   >
                     {i + 1}
                   </div>
-                  <h3 className="font-tech font-semibold text-sm text-foreground">{step.label}</h3>
-                  <p className="text-muted-foreground text-xs mt-1">{step.sub}</p>
+                  <h3 className="font-tech font-semibold text-xs text-foreground">{step.label}</h3>
+                  <p className="text-muted-foreground text-[10px] mt-1">{step.sub}</p>
                 </div>
                 {i < flowSteps.length - 1 && (
                   <div
-                    className={`hidden md:block transition-all duration-500 ${inView ? "opacity-100 w-12" : "opacity-0 w-0"}`}
-                    style={{ transitionDelay: `${0.7 + i * 0.15}s` }}
+                    className={`hidden md:block transition-all duration-500 ${inView ? "opacity-100 w-8" : "opacity-0 w-0"}`}
+                    style={{ transitionDelay: `${0.6 + i * 0.12}s` }}
                   >
-                    <svg width="48" height="24" viewBox="0 0 48 24">
-                      <line x1="0" y1="12" x2="36" y2="12" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" />
-                      <polygon points="36,6 48,12 36,18" fill="hsl(var(--primary))" />
+                    <svg width="32" height="24" viewBox="0 0 32 24">
+                      <line x1="0" y1="12" x2="22" y2="12" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="4 4" />
+                      <polygon points="22,6 32,12 22,18" fill="hsl(var(--primary))" />
                     </svg>
                   </div>
                 )}
@@ -92,7 +86,7 @@ const FlowDiagramSection = () => {
                 const y = 50 + (r / 160) * 50 * Math.sin(angle);
                 return (
                   <div
-                    key={step.label + "-circle"}
+                    key={step.label + "-circle-" + i}
                     className="absolute w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-tech text-xs font-bold animate-pulse-glow"
                     style={{
                       left: `${x}%`,

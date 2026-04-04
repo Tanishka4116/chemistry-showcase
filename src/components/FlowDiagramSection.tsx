@@ -2,15 +2,15 @@ import { useInView } from "./useInView";
 import processFlowImg from "@/assets/process-flow-diagram.png";
 
 const flowSteps = [
-  { label: "Distilled Water", sub: "Solvent base", color: "var(--chem-cyan)" },
-  { label: "Mixing", sub: "Glue + CuSO₄", color: "var(--primary)" },
-  { label: "Heating", sub: "Controlled heat", color: "var(--chem-magenta)" },
-  { label: "Cooling", sub: "Temperature drop", color: "var(--chem-cyan)" },
-  { label: "Filtration", sub: "Separation", color: "var(--primary)" },
-  { label: "Raw Ink", sub: "+ Alcohol & Boric Acid", color: "var(--chem-amber)" },
-  { label: "Mixing", sub: "Final blend", color: "var(--chem-magenta)" },
-  { label: "Filtration", sub: "Final filter", color: "var(--primary)" },
-  { label: "Ink", sub: "Final product", color: "var(--chem-amber)" },
+  { label: "Distilled Water", sub: "Solvent base", icon: "💧" },
+  { label: "Mixing", sub: "Glue + CuSO₄", icon: "🔄" },
+  { label: "Heating", sub: "Controlled heat", icon: "🔥" },
+  { label: "Cooling", sub: "Temperature drop", icon: "❄️" },
+  { label: "Filtration", sub: "Separation", icon: "🧪" },
+  { label: "Raw Ink", sub: "+ Alcohol & Boric Acid", icon: "🧫" },
+  { label: "Mixing", sub: "Final blend", icon: "🔄" },
+  { label: "Filtration", sub: "Final filter", icon: "🧪" },
+  { label: "Ink", sub: "Final product", icon: "✒️" },
 ];
 
 const FlowDiagramSection = () => {
@@ -32,7 +32,7 @@ const FlowDiagramSection = () => {
           </div>
         </div>
 
-        {/* Animated flow steps */}
+        {/* Animated flow steps - horizontal chain */}
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-0">
             {flowSteps.map((step, i) => (
@@ -41,21 +41,9 @@ const FlowDiagramSection = () => {
                   className={`glass-card p-4 md:p-5 text-center min-w-[110px] md:min-w-[120px] hover:scale-110 transition-all duration-500 ${
                     inView ? "opacity-100 scale-100" : "opacity-0 scale-75"
                   }`}
-                  style={{
-                    transitionDelay: `${0.5 + i * 0.12}s`,
-                    boxShadow: inView ? `0 0 20px hsl(${step.color} / 0.3)` : "none",
-                  }}
+                  style={{ transitionDelay: `${0.5 + i * 0.12}s` }}
                 >
-                  <div
-                    className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center font-display font-bold text-sm"
-                    style={{
-                      background: `hsl(${step.color} / 0.2)`,
-                      border: `2px solid hsl(${step.color} / 0.5)`,
-                      color: `hsl(${step.color})`,
-                    }}
-                  >
-                    {i + 1}
-                  </div>
+                  <div className="text-2xl mb-2">{step.icon}</div>
                   <h3 className="font-tech font-semibold text-xs text-foreground">{step.label}</h3>
                   <p className="text-muted-foreground text-[10px] mt-1">{step.sub}</p>
                 </div>
@@ -74,36 +62,121 @@ const FlowDiagramSection = () => {
             ))}
           </div>
 
-          {/* Circular workflow */}
-          <div className={`mt-20 flex justify-center transition-all duration-1000 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1.2s" }}>
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30 molecule-spin" />
-              <div className="absolute inset-4 rounded-full border border-secondary/20 molecule-spin" style={{ animationDirection: "reverse", animationDuration: "30s" }} />
-              {flowSteps.map((step, i) => {
-                const angle = (i / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
-                const r = 120;
-                const x = 50 + (r / 160) * 50 * Math.cos(angle);
-                const y = 50 + (r / 160) * 50 * Math.sin(angle);
-                return (
-                  <div
-                    key={step.label + "-circle-" + i}
-                    className="absolute w-10 h-10 -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-tech text-xs font-bold animate-pulse-glow"
-                    style={{
-                      left: `${x}%`,
-                      top: `${y}%`,
-                      background: `hsl(${step.color} / 0.3)`,
-                      border: `1px solid hsl(${step.color} / 0.6)`,
-                      color: `hsl(${step.color})`,
-                    }}
-                  >
-                    {i + 1}
+          {/* Hexagonal Workflow */}
+          <div className={`mt-20 transition-all duration-1000 ${inView ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1.2s" }}>
+            <h3 className="font-display text-xl md:text-2xl text-center text-foreground mb-10 glow-text">Ink Preparation Workflow</h3>
+            <div className="flex justify-center">
+              <div className="relative w-[320px] h-[320px] md:w-[420px] md:h-[420px]">
+                {/* Animated rotating rings */}
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 molecule-spin" />
+                <div className="absolute inset-6 rounded-full border border-primary/10 molecule-spin" style={{ animationDirection: "reverse", animationDuration: "25s" }} />
+                <div className="absolute inset-12 rounded-full border border-dashed border-accent/15 molecule-spin" style={{ animationDuration: "35s" }} />
+
+                {/* SVG connecting lines */}
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                  {flowSteps.map((_, i) => {
+                    const a1 = (i / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
+                    const a2 = ((i + 1) / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
+                    const r = 38;
+                    const x1 = 50 + r * Math.cos(a1);
+                    const y1 = 50 + r * Math.sin(a1);
+                    const x2 = 50 + r * Math.cos(a2);
+                    const y2 = 50 + r * Math.sin(a2);
+                    return (
+                      <line
+                        key={`line-${i}`}
+                        x1={x1} y1={y1} x2={x2} y2={y2}
+                        stroke="hsl(var(--primary))"
+                        strokeWidth="0.3"
+                        strokeDasharray="1 1"
+                        opacity="0.5"
+                      />
+                    );
+                  })}
+                  {/* Animated particle traveling the path */}
+                  <circle r="1" fill="hsl(var(--primary))" opacity="0.9">
+                    <animateMotion
+                      dur="8s"
+                      repeatCount="indefinite"
+                      path={(() => {
+                        const r = 38;
+                        const pts = flowSteps.map((_, i) => {
+                          const a = (i / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
+                          return `${50 + r * Math.cos(a)},${50 + r * Math.sin(a)}`;
+                        });
+                        return `M${pts[0]} L${pts.slice(1).join(" L")} Z`;
+                      })()}
+                    />
+                  </circle>
+                  <circle r="0.6" fill="hsl(var(--accent))" opacity="0.7">
+                    <animateMotion
+                      dur="8s"
+                      repeatCount="indefinite"
+                      begin="2s"
+                      path={(() => {
+                        const r = 38;
+                        const pts = flowSteps.map((_, i) => {
+                          const a = (i / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
+                          return `${50 + r * Math.cos(a)},${50 + r * Math.sin(a)}`;
+                        });
+                        return `M${pts[0]} L${pts.slice(1).join(" L")} Z`;
+                      })()}
+                    />
+                  </circle>
+                </svg>
+
+                {/* Step nodes */}
+                {flowSteps.map((step, i) => {
+                  const angle = (i / flowSteps.length) * Math.PI * 2 - Math.PI / 2;
+                  const r = 38;
+                  const x = 50 + r * Math.cos(angle);
+                  const y = 50 + r * Math.sin(angle);
+                  return (
+                    <div
+                      key={step.label + "-hex-" + i}
+                      className="absolute group cursor-pointer"
+                      style={{
+                        left: `${x}%`,
+                        top: `${y}%`,
+                        transform: "translate(-50%, -50%)",
+                      }}
+                    >
+                      {/* Node */}
+                      <div
+                        className="w-11 h-11 md:w-14 md:h-14 rounded-full flex items-center justify-center font-tech text-sm font-bold transition-all duration-300 group-hover:scale-125 relative"
+                        style={{
+                          background: `hsl(var(--primary) / 0.15)`,
+                          border: `2px solid hsl(var(--primary) / 0.5)`,
+                          boxShadow: `0 0 12px hsl(var(--primary) / 0.3)`,
+                        }}
+                      >
+                        <span className="text-base md:text-lg">{step.icon}</span>
+                        {/* Pulse ring */}
+                        <div
+                          className="absolute inset-0 rounded-full animate-ping"
+                          style={{
+                            border: `1px solid hsl(var(--primary) / 0.3)`,
+                            animationDuration: `${2 + i * 0.3}s`,
+                          }}
+                        />
+                      </div>
+                      {/* Tooltip on hover */}
+                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20">
+                        <div className="glass-card px-3 py-1.5 text-center">
+                          <p className="font-tech text-[10px] text-foreground font-semibold">{step.label}</p>
+                          <p className="text-muted-foreground text-[8px]">{step.sub}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {/* Center label */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center glass-card px-5 py-3 rounded-full">
+                    <p className="font-display text-primary text-lg md:text-xl glow-text font-bold">INK</p>
+                    <p className="text-muted-foreground text-[10px] font-tech tracking-wider">9 STEPS</p>
                   </div>
-                );
-              })}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <p className="font-display text-primary text-sm glow-text">INK</p>
-                  <p className="text-muted-foreground text-xs">Workflow</p>
                 </div>
               </div>
             </div>

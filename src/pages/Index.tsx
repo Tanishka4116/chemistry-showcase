@@ -8,6 +8,7 @@ import FlowDiagramSection from "@/components/FlowDiagramSection";
 import PhotosSection from "@/components/PhotosSection";
 import ApplicationsSection from "@/components/ApplicationsSection";
 import QuizSection from "@/components/QuizSection";
+import ConclusionSection from "@/components/ConclusionSection";
 
 const Index = () => (
   <div className="relative min-h-screen bg-background">
@@ -21,6 +22,7 @@ const Index = () => (
     <PhotosSection />
     <ApplicationsSection />
     <QuizSection />
+    <ConclusionSection />
 
     {/* Footer */}
     <footer className="py-12 border-t border-border/30">

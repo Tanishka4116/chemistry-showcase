@@ -161,10 +161,10 @@ const FlowDiagramSection = () => {
                         />
                       </div>
                       {/* Tooltip on hover */}
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20">
-                        <div className="glass-card px-3 py-1.5 text-center">
-                          <p className="font-tech text-[10px] text-foreground font-semibold">{step.label}</p>
-                          <p className="text-muted-foreground text-[8px]">{step.sub}</p>
+                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-14 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 whitespace-nowrap pointer-events-none z-20">
+                        <div className="glass-card px-4 py-2.5 text-center border border-primary/30 shadow-lg shadow-primary/10">
+                          <p className="font-tech text-sm text-foreground font-bold">{step.label}</p>
+                          <p className="text-muted-foreground text-xs mt-0.5">{step.sub}</p>
                         </div>
                       </div>
                     </div>

@@ -1,11 +1,12 @@
 import heroImg from "@/assets/hero-chemistry.jpg";
 import moleculeImg from "@/assets/molecules.png";
+import tanishkaImg from "@/assets/tanishka.jpg";
 
 const members = [
-  { name: "Samrudhi Phulari", prn: "202401040129" },
-  { name: "Siddhi Patil", prn: "202401040152" },
-  { name: "Tanishka Bhor", prn: "202401040132" },
-  { name: "Aniket Rajput", prn: "202401040138" },
+  { name: "Samrudhi Phulari", prn: "202401040129", photo: null },
+  { name: "Siddhi Patil", prn: "202401040152", photo: null },
+  { name: "Tanishka Bhor", prn: "202401040132", photo: tanishkaImg },
+  { name: "Aniket Rajput", prn: "202401040138", photo: null },
 ];
 
 const HeroSection = () => (
@@ -40,8 +41,12 @@ const HeroSection = () => (
             className="glass-card p-4 animate-fade-in glow-border hover:scale-105 transition-transform duration-300"
             style={{ animationDelay: `${0.3 + i * 0.15}s` }}
           >
-            <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/30 flex items-center justify-center text-2xl">
-              🧑‍🔬
+            <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/30 flex items-center justify-center text-2xl overflow-hidden">
+              {m.photo ? (
+                <img src={m.photo} alt={m.name} className="w-full h-full object-cover" />
+              ) : (
+                "🧑‍🔬"
+              )}
             </div>
             <h3 className="font-tech font-semibold text-sm text-foreground">{m.name}</h3>
             <p className="text-primary text-xs font-mono mt-1">PRN: {m.prn}</p>

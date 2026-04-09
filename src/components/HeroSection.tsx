@@ -1,11 +1,12 @@
 import heroImg from "@/assets/hero-chemistry.jpg";
 import moleculeImg from "@/assets/molecules.png";
+import tanishkaImg from "@/assets/tanishka.jpg";
 
 const members = [
-  { name: "Samrudhi Phulari", prn: "202401040129" },
-  { name: "Siddhi Patil", prn: "202401040152" },
-  { name: "Tanishka Bhor", prn: "202401040132" },
-  { name: "Aniket Rajput", prn: "202401040138" },
+  { name: "Samrudhi Phulari", prn: "202401040129", photo: null },
+  { name: "Siddhi Patil", prn: "202401040152", photo: null },
+  { name: "Tanishka Bhor", prn: "202401040132", photo: tanishkaImg },
+  { name: "Aniket Rajput", prn: "202401040138", photo: null },
 ];
 
 const HeroSection = () => (

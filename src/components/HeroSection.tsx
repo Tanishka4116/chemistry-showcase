@@ -6,8 +6,8 @@ import aniketImg from "@/assets/aniket.jpg";
 
 const members = [
   { name: "Samruddhi Phulari", prn: "202401040129", photo: samrudhiImg },
-  { name: "Siddhi Patil", prn: "202401040152", photo: null },
   { name: "Tanishka Bhor", prn: "202401040132", photo: tanishkaImg },
+  { name: "Siddhi Patil", prn: "202401040152", photo: null },
   { name: "Aniket Rajput", prn: "202401040138", photo: aniketImg },
 ];
 

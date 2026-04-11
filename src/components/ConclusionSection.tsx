@@ -84,7 +84,7 @@ const ConclusionSection = () => {
               that made this project possible.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
-              {["Samruddhi Phulari", "Tanishka Bhor", "Aniket Rajput"].map((name) => (
+              {["Samruddhi Phulari", "Tanishka Bhor", "Siddhi Patil", "Aniket Rajput"].map((name) => (
                 <span key={name} className="px-3 py-1.5 rounded-full text-xs font-tech font-semibold border border-primary/30 text-primary bg-primary/5">
                   {name}
                 </span>

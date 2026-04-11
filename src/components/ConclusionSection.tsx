@@ -80,8 +80,8 @@ const ConclusionSection = () => {
             <h3 className="font-display text-lg text-foreground mb-3 glow-text">Acknowledgement</h3>
             <p className="text-muted-foreground text-sm font-tech leading-relaxed">
               We extend our sincere gratitude to our faculty guide for their invaluable guidance and support
-              throughout this project. Special thanks to the Department of Computer Engineering for providing
-              the resources and laboratory facilities that made this project possible.
+              throughout this project. Special thanks for providing the resources and laboratory facilities
+              that made this project possible.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               {["Samrudhi Phulari", "Siddhi Patil", "Tanishka Bhor", "Aniket Rajput"].map((name) => (

@@ -3,11 +3,12 @@ import moleculeImg from "@/assets/molecules.png";
 import tanishkaImg from "@/assets/tanishka.jpg";
 import samrudhiImg from "@/assets/samrudhi.jpg";
 import aniketImg from "@/assets/aniket.jpg";
+import siddhiImg from "@/assets/siddhi.jpg";
 
 const members = [
   { name: "Samruddhi Phulari", prn: "202401040129", photo: samrudhiImg },
   { name: "Tanishka Bhor", prn: "202401040132", photo: tanishkaImg },
-  { name: "Siddhi Patil", prn: "202401040152", photo: null },
+  { name: "Siddhi Patil", prn: "202401040152", photo: siddhiImg },
   { name: "Aniket Rajput", prn: "202401040138", photo: aniketImg },
 ];
 
